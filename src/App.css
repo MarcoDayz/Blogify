@@ -11,6 +11,10 @@
     padding: 0;
 }
 
+#App{
+    font-family: var(--font-cont);
+}
+
 header{
     display: flex;
     flex-direction: row;
@@ -76,10 +80,38 @@ ul{
     border: solid;
 }
 .blog-ctn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     border: solid;
     width: 70%;
+    gap: 4rem;
 }
 .cat-ctn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     border: solid;
     width: 30%;
+}
+
+.blog-card{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    gap: 1rem;
+    border: solid;
+}
+.blog-img{
+    height: 10rem;
+    width: 10rem;
+    background-color: aqua;
+    border-radius: 10%;
+}
+.blog-titles{
+    font-family: var(--font-hdr);
+    word-wrap: break-word;
+    width: 70%;
 }

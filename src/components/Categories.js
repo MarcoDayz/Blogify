@@ -2,7 +2,7 @@ import { useContext } from "react";
 import AppContext from "../context/AppContext";
 
 const Categories = () => {
-    const {postsData} = useContext(AppContext)
+    const {postsData, photos} = useContext(AppContext)
 
     return (
         <div className="cat-ctn">
@@ -14,7 +14,9 @@ const Categories = () => {
                     if(post.id < 4){
                         return(
                             <div className="article-card" key={index}>
-                                <img className="article-img"/>
+                                <div className="art-img-wrapper">
+                                    <img className="article-img" src={photos[index]}/>
+                                </div>
                                 <p>{post.title}</p>
                                 <p className="rd-more">Read</p>
                             </div>

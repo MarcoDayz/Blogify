@@ -15,7 +15,7 @@ const App = () => {
             const { data } = await axios.get(`https://jsonplaceholder.typicode.com/posts`)
             const filteredData = data.filter(posts => posts.userId === 1)
             setPostsData(filteredData)
-
+            console.log(filteredData)
         }
         getPosts()
     }, [])

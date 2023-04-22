@@ -15,7 +15,8 @@ const Categories = () => {
                         return(
                             <div className="article-card" key={index}>
                                 <img className="article-img"/>
-                                {post.title}
+                                <p>{post.title}</p>
+                                <p className="rd-more">Read</p>
                             </div>
                         )
                     }

@@ -1,16 +1,35 @@
+import { useContext, useState } from "react";
 import HomeCard from "./HomeCard";
+import AppContext from "../context/AppContext";
 
 const Sidebar = () => {
-    const list = ["Home","Travel","Food","About","Contact"]
+    const {sidebarList} = useContext(AppContext)
+
+    const [subEmail, setSubEmail] = useState(" ")
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        setSubEmail("")
+    }
+
+    const handleChange = (e) => {
+        setSubEmail(e.target.value)
+    }
 
     return (
         <div className="sidebar-ctn">
             <HomeCard />
             <ul>
-                {list.map((item, index) => (
+                {sidebarList.map((item, index) => (
                     <li className="sb-li" key={index}>{item}</li>
                 ))}
             </ul>
+
+            <form className="sub-form" onSubmit={handleSubmit}>
+                <h3>Subscribe for newsletter</h3>
+                <input className="input-sub" type="email" placeholder="Email" value={subEmail} onChange={handleChange} />
+                <input className="sub-btn" type="submit" value="Subscribe" />
+            </form>
         </div>
     )
 };

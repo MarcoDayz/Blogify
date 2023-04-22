@@ -8,7 +8,7 @@ const Blogs = () => {
     return (
         <div className="blog-ctn">
             {postsData.map((post, index) => (
-                <BlogCard post={post} key={index} />
+                <BlogCard post={post} key={index} index={index} />
             ))}
         </div>
     )

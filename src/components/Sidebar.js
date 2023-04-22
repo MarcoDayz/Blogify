@@ -26,7 +26,8 @@ const Sidebar = () => {
             </ul>
 
             <form className="sub-form" onSubmit={handleSubmit}>
-                <h3>Subscribe for newsletter</h3>
+                <h3>Subscribe Newsletter</h3>
+                <p className="sub-i">Get the latest news!</p>
                 <input className="input-sub" type="email" placeholder="Email" value={subEmail} onChange={handleChange} />
                 <input className="sub-btn" type="submit" value="Subscribe" />
             </form>

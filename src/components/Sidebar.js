@@ -3,7 +3,7 @@ import HomeCard from "./HomeCard";
 import AppContext from "../context/AppContext";
 
 const Sidebar = () => {
-    const {sidebarList} = useContext(AppContext)
+    const {sidebarList, showSidebar} = useContext(AppContext)
 
     const [subEmail, setSubEmail] = useState(" ")
 
@@ -17,21 +17,27 @@ const Sidebar = () => {
     }
 
     return (
-        <div className="sidebar-ctn">
-            <HomeCard />
-            <ul>
-                {sidebarList.map((item, index) => (
-                    <li className="sb-li" key={index}>{item}</li>
-                ))}
-            </ul>
+        <>
+        { showSidebar?
+            <div className="sidebar-ctn">
+                <HomeCard />
+                <ul>
+                    {sidebarList.map((item, index) => (
+                        <li className="sb-li" key={index}>{item}</li>
+                    ))}
+                </ul>
 
-            <form className="sub-form" onSubmit={handleSubmit}>
-                <h3>Subscribe Newsletter</h3>
-                <p className="sub-i">Get the latest news!</p>
-                <input className="input-sub" type="email" placeholder="Email" value={subEmail} onChange={handleChange} />
-                <input className="sub-btn" type="submit" value="Subscribe" />
-            </form>
-        </div>
+                <form className="sub-form" onSubmit={handleSubmit}>
+                    <h3>Subscribe Newsletter</h3>
+                    <p className="sub-i">Get the latest news!</p>
+                    <input className="input-sub" type="email" placeholder="Email" value={subEmail} onChange={handleChange} />
+                    <input className="sub-btn" type="submit" value="Subscribe" />
+                </form>
+            </div>
+            :
+            null
+        }
+        </>
     )
 };
 

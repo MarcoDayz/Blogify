@@ -347,6 +347,24 @@ ul{
     }
 }
 
+@media all and (max-width: 768px) {
+    .blog-card{
+        flex-direction: column;
+    }
+    .blog-img{
+        width: 100%;
+        height: clamp(9.5rem, 46vw, 25rem);
+    }
+    .img-i{
+        width: 100%;
+        height: auto;
+        left: 0;
+    }
+    .main-ctn{
+        padding-left: 0;
+    }
+}
+
 /* @media all and (min-width: 768px) and (max-width: 1140px) {
 
 } */

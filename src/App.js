@@ -7,7 +7,7 @@ import SharedLayout from "./components/SharedLayout.js";
 import Home from "./pages/Home.js";
 
 const App = () => {
-    const {setPostsData, postsData, setShowArticles} = useContext(AppContext)
+    const {setPostsData, postsData, setShowArticles, setShowSidebar} = useContext(AppContext)
 
     //create http request for posts
     useEffect(() => {
@@ -22,10 +22,16 @@ const App = () => {
         getPosts()
         const windowResize = () => {
             // console.log(window.innerWidth)
-            if(window.innerWidth < 1140){
+            if(window.innerWidth <= 1140){
                 setShowArticles(false)
             }else{
                 setShowArticles(true)
+            }
+
+            if(window.innerWidth <= 768) {
+                setShowSidebar(false)
+            }else{
+                setShowSidebar(true)
             }
         }
         return () => addEventListener("resize", windowResize)

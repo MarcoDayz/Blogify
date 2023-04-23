@@ -5,6 +5,7 @@ const AppContext = createContext()
 export const AppProvider = ({children}) => {
     const [postsData, setPostsData] = useState([]);
     const [showArticles, setShowArticles] = useState(true);
+    const [showSidebar, setShowSidebar] = useState(true)
     const [showIcon, setShowIcon] = useState(false);
     const [showList, setShowList] = useState(false)
 
@@ -49,7 +50,8 @@ export const AppProvider = ({children}) => {
             sidebarList,
             photos,
             showArticles, setShowArticles,
-            showList, setShowList
+            showList, setShowList,
+            showSidebar, setShowSidebar
         }}>
             {children}
         </AppContext.Provider>

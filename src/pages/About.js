@@ -27,13 +27,14 @@ const About = () => {
                         </div>
                     </IconContext.Provider>
                     <IconContext.Provider value={iconProps}>
-                    <BsTwitter />
+                        <div className="icon">
+                        <BsTwitter />
+                        </div>
                     </IconContext.Provider>
                     <IconContext.Provider value={iconProps}>
-                    <BsFacebook />
-                    </IconContext.Provider>
-                    <IconContext.Provider value={iconProps}>
-
+                        <div className="icon">
+                        <BsFacebook />
+                        </div>
                     </IconContext.Provider>
                 </div>
                 <h1>About Me</h1>

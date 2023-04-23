@@ -13,7 +13,7 @@ const BlogCard = ({post, index}) => {
             <div className="blog-i">
                 <h3 className="blog-titles">{post.title}</h3>
                 <div className="blog-ib">
-                    <p>Posted: {todayDate}</p>
+                    <p>{todayDate}</p>
                     <p>{catArr[index]}</p>
                     {/* <p>Comments</p> */}
                 </div>

@@ -1,5 +1,5 @@
 import { useEffect, useContext } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import axios from "axios";
 import AppContext from "./context/AppContext.js";
 
@@ -8,6 +8,7 @@ import Home from "./pages/Home.js";
 
 const App = () => {
     const {setPostsData, postsData, setShowArticles, setShowSidebar} = useContext(AppContext)
+    const location = useLocation()
 
     //create http request for posts
     useEffect(() => {
@@ -38,9 +39,11 @@ const App = () => {
     })
 
     return (
-        <Routes>
+        <Routes location={location}>
             <Route path="/" element={<SharedLayout />}>
                 <Route path="/" element={<Home />} />
+                <Route path="/about" element={<h1>About Page</h1>} />
+                <Route path="/contact" element={<h1>Contact Page</h1>} />
             </Route>
         </Routes>
     )

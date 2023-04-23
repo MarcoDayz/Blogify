@@ -4,9 +4,8 @@ const AppContext = createContext()
 
 export const AppProvider = ({children}) => {
     const [postsData, setPostsData] = useState([]);
-    const [showArticles, setShowArticles] = useState(true);
-    const [showSidebar, setShowSidebar] = useState(true)
-    const [showIcon, setShowIcon] = useState(false);
+    const [showArticles, setShowArticles] = useState(() => window.innerWidth <= 1140? false : true);
+    const [showSidebar, setShowSidebar] = useState(() => window.innerWidth <= 769? false : true);
     const [showList, setShowList] = useState(false)
 
     const catArr = [
@@ -36,9 +35,18 @@ export const AppProvider = ({children}) => {
     ]
 
     const sidebarList = [
-        "Home",
-        "About",
-        "Contact"
+        {
+            name: "Home",
+            path: "/"
+        },
+        {
+            name: "About",
+            path: "/about"
+        },
+        {
+            name: "Contact",
+            path: "/contact"
+        }
     ]
 
 

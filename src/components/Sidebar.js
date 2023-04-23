@@ -1,11 +1,13 @@
 import { useContext, useState } from "react";
 import HomeCard from "./HomeCard";
 import AppContext from "../context/AppContext";
+import { Link, useLocation } from "react-router-dom";
 
 const Sidebar = () => {
-    const {sidebarList, showSidebar} = useContext(AppContext)
+    const {sidebarList, showSidebar, showList, setShowList} = useContext(AppContext)
+    const {pathname} = useLocation()
 
-    const [subEmail, setSubEmail] = useState(" ")
+    const [subEmail, setSubEmail] = useState("")
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -21,11 +23,17 @@ const Sidebar = () => {
         { showSidebar?
             <div className="sidebar-ctn">
                 <HomeCard />
-                <ul>
+                <div className="links-wrapper">
                     {sidebarList.map((item, index) => (
-                        <li className="sb-li" key={index}>{item}</li>
+                        // <li className="sb-li" key={index}>{item.name}</li>
+                        <Link className="sb-li"
+                        to={item.path}
+                        id={pathname === item.path? "active" : ""}
+                        key={index}>
+                            {item.name}
+                        </Link>
                     ))}
-                </ul>
+                </div>
 
                 <form className="sub-form" onSubmit={handleSubmit}>
                     <h3>Subscribe Newsletter</h3>
@@ -35,7 +43,27 @@ const Sidebar = () => {
                 </form>
             </div>
             :
-            null
+            <div className={showList? "dropList-ctn-true" : "dropList-ctn-false"}>
+            {/* <HomeCard /> */}
+            <div className="links-wrapper">
+                {sidebarList.map((item, index) => (
+                    <Link className="sb-li"
+                        to={item.path}
+                        id={pathname === item.path? "active" : ""}
+                        key={index}
+                        onClick={() => setShowList(false)}>
+                            {item.name}
+                    </Link>
+                ))}
+            </div>
+
+            {/* <form className="sub-form" onSubmit={handleSubmit}>
+                <h3>Subscribe Newsletter</h3>
+                <p className="sub-i">Get the latest news!</p>
+                <input className="input-sub" type="email" placeholder="Email" value={subEmail} onChange={handleChange} />
+                <input className="sub-btn" type="submit" value="Subscribe" />
+            </form> */}
+        </div>
         }
         </>
     )

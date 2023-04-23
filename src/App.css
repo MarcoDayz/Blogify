@@ -55,7 +55,7 @@ header{
     align-items: center;
     justify-content: space-between;
     border-right: solid var(--border-ln-color) 2px;
-    padding: 8rem 1rem;
+    padding: 4rem 1rem;
     width: 15rem;
     gap: 5rem;
     position: fixed;
@@ -108,6 +108,7 @@ ul{
     /* border: solid; */
     width: 70%;
     gap: 4rem;
+    transition: all .2s;
 }
 
 .blog-card{
@@ -130,13 +131,8 @@ ul{
     position: absolute;
     left: -2rem;
     height: 100%;
-    transition: all .2s;
 }
-.blog-card:hover .img-i{
-    height: 105%;
-    left: -3rem;
-    transition: all .2s;
-}
+
 .blog-img:hover{
     cursor: pointer;
 }
@@ -177,6 +173,7 @@ ul{
     width: 30%;
     height: max-content;
     background-color: var(--lightblue);
+    color: white;
     padding: 1rem;
     gap: 1rem;
     border-radius: 15px;
@@ -184,7 +181,6 @@ ul{
 .pop-articles{
     display: flex;
     flex-direction: column;
-    gap: 2rem;
     align-items: flex-start;
 }
 .article-card{
@@ -197,11 +193,9 @@ ul{
 }
 .art-img-wrapper{
     position: relative;
-    height: 6rem;
-    border-radius: 15px 15px 0px 0px;
+    height: 10rem;
+    border-radius: 15px;
     overflow: hidden;
-    transition: all .2s;
-    z-index: 0;
 }
 .article-img{
     position: absolute;
@@ -210,9 +204,15 @@ ul{
     background-color: white;
     z-index: 0;
 }
-.article-card:hover .art-img-wrapper{
-    height: 7rem;
-    transition: all .2s;
+.art-i{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 85%;
+    padding: 1rem;
+    gap: 1rem;
+    background-color: rgba(29, 29, 29, 0.511);
 }
 .sub-form{
     display: flex;
@@ -226,7 +226,7 @@ ul{
     height: 2rem;
     font-size: calc(10px + 1vmin);
     padding-left: .5rem;
-    width: 100%;
+    width: 95%;
 }
 .sub-btn{
     width: max-content;
@@ -244,4 +244,11 @@ ul{
 .sub-i{
     color: var(--black-font);
     font-size: calc(8px + 1vmin);
+}
+
+@media all and (min-width: 768px) and (max-width: 1140px) {
+    .blog-ctn{
+        width: 100%;
+        transition: all .2s;
+    }
 }

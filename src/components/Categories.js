@@ -1,10 +1,13 @@
 import { useContext } from "react";
-import AppContext from "../context/AppContext";
+import AppContext from "../context/AppContext.js";
+import PopArticleCard from "./PopArticleCard.js";
 
 const Categories = () => {
-    const {postsData, photos} = useContext(AppContext)
+    const {postsData, showArticles} = useContext(AppContext)
 
     return (
+        <>
+        {showArticles?
         <div className="cat-ctn">
             <div>
                 <h2>Popular Articles</h2>
@@ -13,18 +16,16 @@ const Categories = () => {
                 {postsData.map((post, index) => {
                     if(post.id < 4){
                         return(
-                            <div className="article-card" key={index}>
-                                <div className="art-img-wrapper">
-                                    <img className="article-img" src={photos[index]}/>
-                                </div>
-                                <p>{post.title}</p>
-                                <p className="rd-more">Read</p>
-                            </div>
+                            <PopArticleCard i={index} post={post} key={index}/>
                         )
                     }
                 })}
             </div>
         </div>
+        :
+        null
+        }
+        </>
     )
 };
 

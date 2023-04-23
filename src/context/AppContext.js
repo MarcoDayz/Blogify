@@ -4,7 +4,9 @@ const AppContext = createContext()
 
 export const AppProvider = ({children}) => {
     const [postsData, setPostsData] = useState([]);
-    const [showArticles, setShowArticles] = useState(true)
+    const [showArticles, setShowArticles] = useState(true);
+    const [showIcon, setShowIcon] = useState(false);
+    const [showList, setShowList] = useState(false)
 
     const catArr = [
         "Travel",
@@ -46,7 +48,8 @@ export const AppProvider = ({children}) => {
             catArr,
             sidebarList,
             photos,
-            showArticles, setShowArticles
+            showArticles, setShowArticles,
+            showList, setShowList
         }}>
             {children}
         </AppContext.Provider>

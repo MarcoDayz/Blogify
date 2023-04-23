@@ -5,6 +5,7 @@ import AppContext from "./context/AppContext.js";
 
 import SharedLayout from "./components/SharedLayout.js";
 import Home from "./pages/Home.js";
+import About from "./pages/About.js";
 
 const App = () => {
     const {setPostsData, postsData, setShowArticles, setShowSidebar} = useContext(AppContext)
@@ -42,7 +43,7 @@ const App = () => {
         <Routes location={location}>
             <Route path="/" element={<SharedLayout />}>
                 <Route path="/" element={<Home />} />
-                <Route path="/about" element={<h1>About Page</h1>} />
+                <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<h1>Contact Page</h1>} />
             </Route>
         </Routes>

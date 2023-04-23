@@ -3,7 +3,7 @@ const HomeCard = () => {
 
     return (
         <div className="user-card">
-            <h1>Marco Diaz</h1>
+            <h1>John Doe</h1>
             {/* <p>Last Login: {date.toDateString()}</p> */}
         </div>
     )
